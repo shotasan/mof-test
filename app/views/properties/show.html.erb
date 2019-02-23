@@ -7,7 +7,7 @@
 
 <p>
   <strong>賃料:</strong>
-  <%= @property.rent %>
+  <%= number_with_delimiter(@property.rent) %>
 </p>
 
 <p>
@@ -25,5 +25,5 @@
   <%= @property.remarks %>
 </p>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to '編集', edit_property_path(@property) %> |
+<%= link_to '戻る', properties_path %>
