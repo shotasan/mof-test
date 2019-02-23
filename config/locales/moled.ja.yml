@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      property: "物件"
+    attributes:
+      property:
+        name: "物件名"
+        rent: "賃料"
+        address: "住所"
+        building_age: "築年数"
+        remarks: "備考"
