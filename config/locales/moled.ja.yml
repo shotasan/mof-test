@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       property: "物件"
+      closet_station:
     attributes:
       property:
         name: "物件名"
@@ -9,3 +10,7 @@ ja:
         address: "住所"
         building_age: "築年数"
         remarks: "備考"
+      closet_station:
+        route: "路線名"
+        station: "駅名"
+        walk_time: "徒歩分数"

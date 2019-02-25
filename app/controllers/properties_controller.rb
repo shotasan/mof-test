@@ -15,6 +15,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   def new
     @property = Property.new
+    2.times {@property.closet_stations.build}
   end
 
   # GET /properties/1/edit
@@ -25,9 +26,11 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
-
+    
     respond_to do |format|
-      if @property.save
+      if @property.save!
+        # @property.closet_stations.propety_id = @property.id
+        # binding.pry
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
         format.json { render :show, status: :created, location: @property }
       else
@@ -62,13 +65,14 @@ class PropertiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      @property = Property.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_property
+    @property = Property.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def property_params
-      params.require(:property).permit(:name, :rent, :address, :building_age, :remarks)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def property_params
+    params.require(:property).permit(:name, :rent, :address, :building_age, :remarks,
+                                      closet_stations_attributes: [:id, :route, :station, :walk_time, :property_id])
+  end
 end
