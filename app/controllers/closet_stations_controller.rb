@@ -28,7 +28,7 @@ class ClosetStationsController < ApplicationController
 
     respond_to do |format|
       if @closet_station.save
-        format.html { redirect_to @closet_station, notice: 'Closet station was successfully created.' }
+        format.html { redirect_to @closet_station, notice: '登録に成功しました' }
         format.json { render :show, status: :created, location: @closet_station }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ClosetStationsController < ApplicationController
   def update
     respond_to do |format|
       if @closet_station.update(closet_station_params)
-        format.html { redirect_to @closet_station, notice: 'Closet station was successfully updated.' }
+        format.html { redirect_to @closet_station, notice: '編集に成功しました' }
         format.json { render :show, status: :ok, location: @closet_station }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ClosetStationsController < ApplicationController
   def destroy
     @closet_station.destroy
     respond_to do |format|
-      format.html { redirect_to closet_stations_url, notice: 'Closet station was successfully destroyed.' }
+      format.html { redirect_to closet_stations_url, notice: '削除に成功しました' }
       format.json { head :no_content }
     end
   end
