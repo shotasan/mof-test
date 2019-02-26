@@ -32,7 +32,7 @@
 
   <%#indexメソッドによって必要な回数分の入力欄が追加される%>
   <%= f.fields_for :closet_stations do |c| %>
-    <h3>最寄り駅<%= c.index + 1 %></h3>
+    <h3>最寄り駅<%#= c.index + 1 %></h3>
     <div class="field">
       <p><%= c.label :route %></p>
       <%= c.text_field :route %>

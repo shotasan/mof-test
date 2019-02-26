@@ -1,1 +1,0 @@
-json.partial! "closet_stations/closet_station", closet_station: @closet_station
