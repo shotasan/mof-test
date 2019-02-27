@@ -15,6 +15,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   def new
     @property = Property.new
+    # 最寄り駅１と最寄り駅２のインスタンスを作成
     2.times {@property.closet_stations.build}
   end
 
@@ -25,16 +26,12 @@ class PropertiesController < ApplicationController
   # POST /properties
   # POST /properties.json
   def create
-    @property = Property.new(property_params)
-    
+    @property = Property.new(property_params) 
     respond_to do |format|
       if @property.save
-        # @property.closet_stations.propety_id = @property.id
-        # binding.pry
         format.html { redirect_to @property, notice: '登録に成功しました' }
         format.json { render :show, status: :created, location: @property }
       else
-        2.times {@property.closet_stations.build}
         format.html { render :new }
         format.json { render json: @property.errors, status: :unprocessable_entity }
       end
